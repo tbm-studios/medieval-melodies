@@ -11,13 +11,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Get commit count
+      id: commit_count
+      run: echo "commit_count=$(git rev-list --count HEAD)" >> $GITHUB_ENV
+
     - name: Create ZIP
       run: |
-        repo_name=$(basename $GITHUB_REPOSITORY)
-        zip -r "${repo_name}.zip" . -x ".git/*" ".github/*"
+        repo_name="1.7-datapack"
+        versionmc="versionmc"
+        commit_count="${{ env.commit_count }}"
+        zip_name="${repo_name}-${versionmc}-${commit_count}.zip"
+        zip -r "$zip_name" . -x ".git/*" ".github/*"
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ github.event.repository.name }}
-        path: ${{ github.event.repository.name }}.zip
+        name: ${{ env.zip_name }}
+        path: ${{ env.zip_name }}
