@@ -17,7 +17,13 @@ jobs:
 
     - name: Set Artifact Name
       id: set-artifact-name
-      run: echo "artifact_name=${GITHUB_REPOSITORY}-${GITHUB_REF_NAME/-datapack/}" >> $GITHUB_ENV
+      run: |
+        # Extract the basename of the repository
+        repo_name=$(basename $GITHUB_REPOSITORY)
+        # Remove `-datapack` from branch name if present
+        artifact_name="${repo_name}-${GITHUB_REF_NAME/-datapack/}"
+        # Set the artifact name as an environment variable
+        echo "artifact_name=${artifact_name}" >> $GITHUB_ENV
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
