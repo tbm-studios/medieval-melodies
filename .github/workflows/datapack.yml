@@ -1,0 +1,24 @@
+name: Create ZIP on Branch
+
+on:
+  push:
+    branches:
+      - 1.7-datapack
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Create ZIP
+      run: |
+        zip -r repo.zip . -x ".git/*" ".github/*"
+
+    - name: Upload ZIP
+      uses: actions/upload-artifact@v2
+      with:
+        name: repo-zip
+        path: repo.zip
