@@ -1,24 +1,23 @@
-name: Create ZIP on Branch
+name: Zip Datapack
 
 on:
   push:
     branches:
-      - 1.7-datapack
+      - 1.7-datapack  # Ersetze dies mit dem Namen deines Branches
 
 jobs:
-  zip:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Create ZIP
-      run: |
-        zip -r repo.zip . -x ".git/*" ".github/*"
+    - name: Create ZIP file
+      run: zip -r datapack.zip ./*
 
-    - name: Upload ZIP
+    - name: Upload ZIP file
       uses: actions/upload-artifact@v2
       with:
-        name: repo-zip
-        path: repo.zip
+        name: datapack
+        path: datapack.zip
