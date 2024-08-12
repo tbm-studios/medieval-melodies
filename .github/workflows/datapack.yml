@@ -18,5 +18,6 @@ jobs:
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ github.repository }}-${{ github.ref_name }}
+        name: ${{ github.repository }}-${{ github.ref_name }}-datapack
         path: datapack.zip
+        if-no-files-found: warn
