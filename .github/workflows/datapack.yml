@@ -1,5 +1,8 @@
 name: Create ZIP on Push
 
+on:
+  push:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,15 +20,3 @@ jobs:
       with:
         name: my-datapack
         path: my-datapack.zip
-
-
-
-
-
-
-
-
-
-
-
-dann entferen den push on teil da er ja dann irrelvant ist
