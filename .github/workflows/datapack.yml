@@ -11,14 +11,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set environment variables
+      run: |
+        echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
+        echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
     - name: Create ZIP
       run: |
-        repo_name=$(basename $GITHUB_REPOSITORY)
-        version_number=${GITHUB_RUN_NUMBER}
-        zip -r "${repo_name}-versionmc-${version_number}.zip" . -x ".git/*" ".github/*"
+        zip -r "${REPO_NAME}-${BRANCH_NAME}.zip" . -x ".git/*" ".github/*"
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: "${{ github.event.repository.name }}-versionmc-${{ github.run_number }}"
-        path: "${{ github.event.repository.name }}-versionmc-${{ github.run_number }}.zip"
+        name: "${REPO_NAME}-${BRANCH_NAME}"
+        path: "${REPO_NAME}-${BRANCH_NAME}.zip"
