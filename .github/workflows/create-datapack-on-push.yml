@@ -1,0 +1,30 @@
+name: Create Datapack on Push
+
+on: push  # Trigger this workflow on push events
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Checkout the repository to the runner
+
+    - name: Get Version Number
+      run: echo "VERSION_NUMBER=$(echo ${GITHUB_REF##*/} | sed 's/-datapack//')" >> $GITHUB_ENV
+      # Extract the version number from the branch or tag name and set it as an environment variable
+
+    - name: Create Datapack
+      run: |
+        ZIP_NAME="$(basename $GITHUB_REPOSITORY)-${VERSION_NUMBER}.zip"
+        echo "ZIP_NAME=${ZIP_NAME}" >> $GITHUB_ENV
+        # Define the name of the zip file and set it as an environment variable
+        zip -r $ZIP_NAME . -x ".git/*" ".github/*"
+        # Create a zip archive of the repository contents, excluding .git and .github directories
+
+    - name: Upload Datapack as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ env.ZIP_NAME }}
+        path: ${{ env.ZIP_NAME }}
+        # Upload the created zip file as an artifact to GitHub Actions
