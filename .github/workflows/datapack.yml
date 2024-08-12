@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -13,10 +13,11 @@ jobs:
 
     - name: Create ZIP
       run: |
-        zip -r "${{ github.repository }}.zip" . -x ".git/*" ".github/*"
+        repo_name=$(basename $GITHUB_REPOSITORY)
+        zip -r "${repo_name}.zip" . -x ".git/*" ".github/*"
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ github.repository }}
-        path: "${{ github.repository }}.zip"
+        name: ${{ github.event.repository.name }}
+        path: ${{ github.event.repository.name }}.zip
