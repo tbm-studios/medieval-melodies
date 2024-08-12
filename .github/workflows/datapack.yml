@@ -13,10 +13,12 @@ jobs:
 
     - name: Create ZIP
       run: |
-        zip -r datapack.zip . -x ".git/*" ".github/*"
+        ZIP_NAME="${GITHUB_REPOSITORY##*/}-${GITHUB_REF_NAME}.zip"
+        zip -r $ZIP_NAME . -x ".git/*" ".github/*"
+        echo "ZIP_NAME=${ZIP_NAME}" >> $GITHUB_ENV
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ github.repository }}-${{ github.ref_name }}.zip
-        path: datapack.zip
+        name: ${{ env.ZIP_NAME }}
+        path: ${{ env.ZIP_NAME }}
