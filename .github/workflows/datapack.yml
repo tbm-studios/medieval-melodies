@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
 
     steps:
     - name: Checkout code
@@ -13,10 +13,10 @@ jobs:
 
     - name: Create ZIP
       run: |
-        zip -r my-datapack.zip . -x ".git/*" ".github/*"
+        zip -r "${{ github.repository }}.zip" . -x ".git/*" ".github/*"
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: my-datapack
-        path: my-datapack.zip
+        name: ${{ github.repository }}
+        path: "${{ github.repository }}.zip"
