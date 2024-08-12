@@ -3,7 +3,7 @@ name: Create ZIP on Push
 on:
   push:
     branches:
-      - main  # Passe den Branch-Namen an, falls nötig
+      - 1.7-datapack  # Passe den Branch-Namen an, falls nötig
 
 jobs:
   build:
