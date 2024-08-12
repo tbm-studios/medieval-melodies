@@ -1,0 +1,199 @@
+{
+    "music.game": {
+     "category": "music",
+     "sounds": [
+      {
+       "name": "music/game/skye",
+       "stream": true
+      },
+	  {
+       "name": "music/game/achaidhcheide",
+       "stream": true
+      },
+	  {
+       "name": "music/game/adventure",
+       "stream": true
+      },
+	  {
+       "name": "music/game/ahoj",
+       "stream": true
+      },
+	  {
+       "name": "music/game/angevinb",
+       "stream": true
+      },
+	  {
+       "name": "music/game/ascendingthevale",
+       "stream": true
+      },
+	  {
+       "name": "music/game/ballaard",
+       "stream": true
+      },
+	  {
+       "name": "music/game/battletheme",
+       "stream": true
+      },
+	  {
+       "name": "music/game/blacksmith",
+       "stream": true
+      },
+	  {
+       "name": "music/game/bonfire",
+       "stream": true
+      },
+	  {
+       "name": "music/game/castlebuild",
+       "stream": true
+      },
+	  {
+       "name": "music/game/celtica",
+       "stream": true
+      },
+	  {
+       "name": "music/game/dialm",
+       "stream": true
+      },
+	  {
+       "name": "music/game/edelklanc",
+       "stream": true
+      },
+	  {
+       "name": "music/game/entertainment",
+       "stream": true
+      },
+	  {
+       "name": "music/game/exploration",
+       "stream": true
+      },
+	  {
+       "name": "music/game/folkround",
+       "stream": true
+      },
+	  {
+       "name": "music/game/galway",
+       "stream": true
+      },
+	  {
+       "name": "music/game/gatesofglory",
+       "stream": true
+      },
+	  {
+       "name": "music/game/gildentaverne",
+       "stream": true
+      },
+	  {
+       "name": "music/game/gregorianchant",
+       "stream": true
+      },
+	  {
+       "name": "music/game/heavyheart",
+       "stream": true
+      },
+	  {
+       "name": "music/game/hiddenpast",
+       "stream": true
+      },
+	  {
+       "name": "music/game/highlandmist",
+       "stream": true
+      },
+	  {
+       "name": "music/game/kingsfeast",
+       "stream": true
+      },
+	  {
+       "name": "music/game/lordoftheland",
+       "stream": true
+      },
+	  {
+       "name": "music/game/marked",
+       "stream": true
+      },
+	  {
+       "name": "music/game/marketday",
+       "stream": true
+      },
+	  {
+       "name": "music/game/masterofthefeast",
+       "stream": true
+      },
+	  {
+       "name": "music/game/medievaltavern",
+       "stream": true
+      },
+	  {
+       "name": "music/game/midnighttale",
+       "stream": true
+      },
+	  {
+       "name": "music/game/minstreldance",
+       "stream": true
+      },
+	  {
+       "name": "music/game/minstrelguild",
+       "stream": true
+      },
+	  {
+       "name": "music/game/moorland",
+       "stream": true
+      },
+	  {
+       "name": "music/game/pippinthehunchback",
+       "stream": true
+      },
+	  {
+       "name": "music/game/rejoicing",
+       "stream": true
+      },
+	  {
+       "name": "music/game/rites",
+       "stream": true
+      },
+	  {
+       "name": "music/game/ritual",
+       "stream": true
+      },
+	  {
+       "name": "music/game/suonatorediliuto",
+       "stream": true
+      },
+	  {
+       "name": "music/game/tabuk",
+       "stream": true
+      },
+	  {
+       "name": "music/game/tavernambience",
+       "stream": true
+      },
+	  {
+       "name": "music/game/tellerofthetales",
+       "stream": true
+      },
+	  {
+       "name": "music/game/thatchedvillagers",
+       "stream": true
+      },
+	  {
+       "name": "music/game/thebritons",
+       "stream": true
+      },
+	  {
+       "name": "music/game/theoldtowerinn",
+       "stream": true
+      },
+	  {
+       "name": "music/game/thepyre",
+       "stream": true
+      },
+	  {
+       "name": "music/game/townsvilleextendded",
+       "stream": true
+      },
+	  {
+       "name": "music/game/villageconsort",
+       "stream": true
+      }
+     ]
+    }
+}
