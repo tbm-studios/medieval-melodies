@@ -18,10 +18,11 @@ jobs:
       run: |
         REPO_NAME=$(basename $GITHUB_REPOSITORY)
         ZIP_NAME="${REPO_NAME}-${BRANCH_NAME}.zip"
+        echo "ZIP_NAME=${ZIP_NAME}" >> $GITHUB_ENV
         zip -r $ZIP_NAME . -x ".git/*" ".github/*"
 
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
         name: my-datapack
-        path: ${{ github.repository_name }}-${{ env.BRANCH_NAME }}.zip
+        path: ${{ env.ZIP_NAME }}
