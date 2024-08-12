@@ -15,8 +15,12 @@ jobs:
       run: |
         zip -r datapack.zip . -x ".git/*" ".github/*"
 
+    - name: Set Artifact Name
+      id: set-artifact-name
+      run: echo "artifact_name=${GITHUB_REPOSITORY}-${GITHUB_REF_NAME/-datapack/}" >> $GITHUB_ENV
+
     - name: Upload ZIP as artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ${{ format('{0}-{1}', github.repository, github.ref_name.replace('-datapack', '')) }}
+        name: ${{ env.artifact_name }}
         path: datapack.zip
