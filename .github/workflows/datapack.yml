@@ -11,13 +11,16 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Get Branch Name
-      run: echo "BRANCH_NAME=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
+    - name: Get Version Number
+      run: |
+        BRANCH_NAME=$(echo ${GITHUB_REF##*/})
+        VERSION_NUMBER=$(echo $BRANCH_NAME | sed 's/-datapack//')
+        echo "VERSION_NUMBER=${VERSION_NUMBER}" >> $GITHUB_ENV
 
     - name: Create ZIP
       run: |
         REPO_NAME=$(basename $GITHUB_REPOSITORY)
-        ZIP_NAME="${REPO_NAME}-${BRANCH_NAME}.zip"
+        ZIP_NAME="${REPO_NAME}-${VERSION_NUMBER}.zip"
         echo "ZIP_NAME=${ZIP_NAME}" >> $GITHUB_ENV
         zip -r $ZIP_NAME . -x ".git/*" ".github/*"
 
